@@ -1,0 +1,609 @@
+@import url('https://fonts.googleapis.com/css2?family=Trade+Winds&family=Uncial+Antiqua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: url(img/bg2-01.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -2;
+    filter: blur(2px);
+}
+
+main {
+    width: 100%;
+    /* background-color: #00000004; */
+    color: white;
+}
+
+.MainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.MainContainer h1.mainTitle {
+    font-size: 90px;
+    font-family: 'Playfair Display rev=1', 'Cinzel', serif;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    color: white;
+    text-shadow:
+        0 -1px 0 #fff,
+        0 1px 0 #2e2e2e,
+        0 2px 0 #2c2c2c,
+        0 3px 0 #282828,
+        0 4px 0 #242424;
+}
+
+h1.secTitle {
+    font-size: 38px;
+    font-weight: 00;
+    margin-bottom: 2px;
+    /* font-family: 'Courgette', cursive; */
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: "Playfair Display rev=1";
+
+    color: white;
+}
+
+.teamSection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.sectionDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 150px;
+    margin-top: 50px;
+    /* border: 2px solid red; */
+}
+
+.logo {
+    position: fixed;
+    top: 4px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.logo1 {
+    max-width: 15vw;
+    max-height: 9vh;
+    left: 15px;
+    filter: invert();
+}
+
+.logo2 {
+    max-width: 15vw;
+    max-height: 13vh;
+    right: 15px;
+}
+
+@media (max-width: 1100px) {
+    .teamSection .card {
+        margin: 15px 15px;
+    }
+
+    .logos {
+        position: relative;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .logo2 {
+        top: 8px;
+    }
+
+    .main1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .MainContainer h1.mainTitle {
+        font-size: 80px;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 700px) {
+    .logo {
+        position: relative;
+        max-width: 50vw;
+        max-height: 11vh;
+        margin-bottom: 12px;
+    }
+
+    .main1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .MainContainer h1.mainTitle {
+        font-size: 60px;
+        margin-bottom: 25px;
+    }
+
+    .sectionDiv {
+        margin-bottom: 120px;
+        margin-top: 50px;
+    }
+}
+
+
+
+/* card design */
+
+.teamCard {
+    position: relative;
+    width: 380px;
+    height: 260px;
+    background: #333;
+    transition: 0.5s;
+    margin-top: 60px;
+    margin: 100px 25px 5px 25px;
+    user-select: none;
+}
+
+.teamCard:hover {
+    height: 400px;
+}
+
+.teamCard .lines {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    overflow: hidden;
+}
+
+.teamCard .lines::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 120px;
+    background: linear-gradient(transparent, #45f3ff, #45f3ff, #45f3ff, transparent);
+    animation: cardAnim 4s linear infinite;
+}
+
+@keyframes cardAnim {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.teamCard .lines::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: linear-gradient(45deg, #101010, #122539);
+    /* background: #292929; */
+}
+
+.teamCard .imgBx {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 230px;
+    height: 230px;
+    background: #000;
+    transition: all 0.5s ease;
+    z-index: 10;
+    overflow: hidden;
+    object-position: center;
+    object-fit: none;
+}
+
+.teamCard:hover .imgBx {
+    width: 260px;
+    height: 260px;
+}
+
+.teamCard .imgBx::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 150px;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(transparent, #ff3c7b, #ff3c7b, #ff3c7b, transparent);
+    animation: photoAnim 6s linear infinite;
+}
+
+@keyframes photoAnim {
+    0% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+.teamCard .imgBx::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background-color: #292929;
+}
+
+.teamCard .imgBx img {
+    position: absolute;
+    width: calc(100% - 15px);
+    height: calc(100% - 15px);
+    z-index: 1;
+    top: 7.5px;
+    left: 7.5px;
+    /* filter: grayscale(1); */
+}
+
+.teamCard .cardContent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    /* transform: translateY(60px); */
+    overflow: hidden;
+    transition: all 0.5s ease;
+    top: -25px;
+}
+
+.teamCard .cardContent .details {
+    text-align: center;
+    width: 100%;
+    transition: all 0.5s ease;
+    margin-top: 300px;
+}
+
+.cardContent .details h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.85px;
+    font-weight: 600;
+    line-height: 35px;
+    color: #45f3ff;
+
+}
+
+.cardContent .details h4 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 21px;
+    font-weight: 500;
+    /* color: #ff3c7b; */
+}
+
+.sMedia {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.sMedia img {
+    width: 48px;
+    height: 48px;
+    margin: 3px 15px;
+}
+
+.teamCard:hover .cardContent {
+    transform: translateY(-25px);
+}
+
+.teamCard:hover .cardContent .details {
+    margin-top: 30px;
+}
+
+.sMedia img:hover {
+    width: 46px;
+    height: 46px;
+    margin: 3px 15px;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+@media (max-width: 450px) {
+    .teamCard {
+        width: 325px;
+        height: 240px;
+    }
+}
+
+/* Shrikant code */
+
+/* Element hide */
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 0.8s ease-in-out;
+}
+
+.reveal.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+
+/* popup button */
+
+/* .popup-btn{
+    z-index: 2;
+    color: #fff;
+    background: #555;
+    position: relative;
+    top: 2%;
+    left: 3%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+  } */
+
+.imgBtn {
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #122539;
+    cursor: pointer;
+    border-radius: 25%;
+}
+
+.imgBtn:hover {
+    color: rgb(117, 224, 248);
+}
+
+.teamImg {
+    width: 55vw;
+    height: fit-content;
+    min-height: 450px;
+    /* display: flex; */
+    margin-top: 20px;
+    display: none;
+}
+
+.teamImg1 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg2 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg3 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg4 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg5 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg6 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg7 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg8 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg9 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg10 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg11 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg12 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg13 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg14 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg15 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg16 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg17 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teamImg18 {
+    background: url(img/teamimg.webp);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+/* @keyframes showImg {
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 350px;
+    }
+} */
+
+.animate {
+    animation: fadeIn 500ms ease-out backwards;
+}
+
+@keyframes fadeIn {
+    from {
+        transform: translateX(-30%);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+
+.animate2 {
+    animation: fadeOut 500ms ease-out backwards;
+}
+
+@keyframes fadeOut {
+    from {
+        transform: translateX(0px);
+    }
+
+    to {
+        transform: translateX(30%);
+    }
+}
+
+@media (max-width: 1100px) {
+    .teamImg {
+        width: 60vw;
+        height: fit-content;
+        min-height: 300px;
+        /* display: flex; */
+        margin-top: 20px;
+        display: none;
+    }
+}
+
+@media (max-width:800px) {
+    .teamImg {
+        width: 70vw;
+        height: fit-content;
+        min-height: 250px;
+        /* display: flex; */
+        margin-top: 20px;
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .teamImg {
+        width: 80vw;
+        height: fit-content;
+        min-height: 250px;
+        /* display: flex; */
+        margin-top: 20px;
+        display: none;
+    }
+}
+
+@media (max-width: 425px) {
+    .teamImg {
+        width: 85vw;
+        height: fit-content;
+        min-height: 220px;
+        /* display: flex; */
+        margin-top: 20px;
+        display: none;
+    }
+}
